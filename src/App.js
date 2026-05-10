@@ -1,49 +1,122 @@
 import { useState } from "react";
 
-// ── CURRICULUM ──────────────────────────────────────────────────────────────
+// ── METHODIK & PÄDAGOGIK (VerticalKay Education) ───────────────────────────
+const METHODIK = `VERTICALKAY-METHODIK (verbindlich für ALLE Stunden):
+
+PÄDAGOGIK (Kern):
+- INDIREKTE KOMMUNIKATION: Immer Pluralform ("Wir aktivieren...", "Wir strecken..."). NIEMALS einzelne Schüler vorführen oder mit dem Finger zeigen. Korrekturen über die ganze Gruppe.
+- SPIEGEL nutzen: Über den Spiegel die Gruppe im Blick behalten und korrigieren.
+- METAPHERN & BILDSPRACHE: Alltagsvergleiche statt anatomischer Fachsprache.
+- REGRESSION für Schwächere (leichtere Variante/Vorübung) + PROGRESSION für Stärkere (komplexere Variante) – beides immer parallel anbieten.
+- 5 LERNTYPEN bedienen: visuell (Spiegel/Demo), auditiv (klare Ansage), lese-schreib (Handout-fähige Notiz), kinetisch (selbst ausführen), solitär (Eigentempo).
+
+ANATOMIE & SICHERHEIT:
+- LATISSIMUS bei JEDEM Spin und JEDEM Hängen aktivieren ("Schultern weg von den Ohren, Schulterblätter Richtung Hosentasche").
+- PRESSPOINTS niemals auf Gelenke (Knie, Ellenbogen, Wirbelsäule) – immer auf Muskel/Fleisch.
+- BEIDE SEITEN trainieren (Dysbalancen vermeiden) – auch wenn's keinen Spaß macht.
+- KEIN Schwung holen beim Inverten – Kraft aus Latissimus + Bauch.
+- Pre-Stretch im Warm-Up max. 8 Sekunden halten (sonst Kraftverlust).
+
+RÄUMLICHE ORIENTIERUNG (Uhrzeiten):
+- 12:00 Uhr = vor der Pole (Spiegel/Publikum)
+- 6:00 Uhr = hinter der Pole (Ausgang)
+- 3:00 / 9:00 Uhr = seitlich neben der Pole
+- "Wir stehen hinter der Pole und stellen uns eine Uhr auf dem Boden vor."
+
+DIDAKTIK:
+- Vom BEKANNTEN zum UNBEKANNTEN, vom ALTEN zum NEUEN.
+- Figuren 2–3x pro Seite üben, ERST ohne Musik, DANN mit Musik.
+- "No rush!" – Wiederholung führt zum Erfolg, niemals durchhetzen.
+- WH = Wiederholung, OST = One Side Turn.`;
+
+// ── FIGURENKATALOG ──────────────────────────────────────────────────────────
 function buildCurriculum(level) {
-  const base = `DEIN KONZEPT – WICHTIGE REGELN:
-- Jede Einheit: Warm-Up + Wiederholung + 6 Pflicht-Bausteine (Spin, Trick, Figur, Move, Tänzerisches Element, Boden)
-- Warm-Up: Seq.1 Mobilisierung, Seq.2 Cardio/Kraft, Seq.3 Pre-Stretch (max. 8 Sek.), Seq.4 Pole-Vorbereitung
-- Figuren 2–3x pro Seite, erst OHNE Musik, dann MIT Musik
-- Von bekannten zu neuen Figuren – niemals zu schnell steigern
-- Gesundheitsorientierter Kraftaufbau
-- Uhrzeiten: 6:00 Uhr (hinter Pole), 9:00/15:00 Uhr (seitlich), 12:00 Uhr (vor Pole)
-- WH = Wiederholung, OST = One Side Turn
+  const l10 = `LEVEL 1.0 (Pre Basic) – verfügbare Figuren:
+Static Pole: Basic Walk, Position I+II, Plié, Hip Circle, Body Wave Up, Passé, Body Touch, Pencil Turn/Pirouette, Fan Kick Floor, Fan Kick Pole, Knee Sit, Pull Up (Basic Grip), Heel Sit, Basic Spin, Front Hook Stand, Back Hook, Knee Change, Basic Climb (1x), Prayer Slide Passé, Play Leg + OST, Pole Seat Beginner, Lean Back Beginner, Lean Back Single Grip, Headstand Prep.+Hips+Play Leg, Headstand+Candle, Chair Spin Front, Chair Spin+Back Hook, Arch Back, Basic Side Slide, Pin Up Kick, Tic Toc, Hoover, Knee Bridge, Squat Sit, Hip Roll, Wave Up Front/Back
+Spinning Pole: Basic Spin Spinning, Back Hook Spinning, Front Hook Spin, Fireman Spin, Mermaid Spin, Side Spin Front/Dizzy Lizzy, Basic Climb Spinning, Chair Spin Spinning, Push Turn, Ballerina Stand, Clock Work, Trucker Girl
+Griffarten: Basic Grip/True Grip, Reverse Grip, Safety/Push Grip`;
 
-LEVEL-REGEL: Du darfst AUSSCHLIESSLICH Figuren aus den unten angegebenen Levels verwenden.`;
+  const l11 = `\n\nLEVEL 1.1 (Basic/Fundamentals) – zusätzlich zu 1.0:
+Neue Figuren: Basic Spin Back, Chair Spin Back (Reverse Grip), Diamond Spin, Fireman Spin Static, Tuck Spin, Belly Slide, Broken Crucifix Boden+Air, Wrap Around, Lady Seat/Knee Hook Pose, Seat Arm Pit Hold, Basic Invert Open Leg, Lean Back Double Grip, Sunwheel Pose/Stag Pose, Ballerina Pose, Roundabout Pole, Stag Floor, Shoulder Roll, Side Slide, Side Slide Kick
+Neue Griffarten: Armpit Hold, Twisted Grip, Reverse Split Grip`;
 
-  const l10 = `\nVERFÜGBARE FIGUREN – NUR DIESE VERWENDEN:
-Level 1.0 Static Pole: Basic Walk, Position I+II, Plié, Hip Circle, Body Wave Up, Passé, Body Touch, Pencil Turn/Pirouette, Fan Kick Floor, Fan Kick Pole, Knee Sit, Pull Up (Basic Grip), Heel Sit, Basic Spin, Front Hook Stand, Back Hook, Knee Change, Basic Climb (1x), Prayer Slide Passé, Play Leg + OST, Pole Seat Beginner, Lean Back Beginner, Lean Back Single Grip, Headstand Prep.+Hips+Play Leg, Headstand+Candle, Chair Spin Front, Chair Spin+Back Hook, Arch Back, Basic Side Slide, Pin Up Kick, Tic Toc, Hoover, Knee Bridge
-Level 1.0 Spinning Pole: Basic Spin Spinning, Back Hook Spinning, Front Hook Spin, Fireman Spin, Mermaid Spin, Side Spin Front/Dizzy Lizzy, Basic Climb Spinning, Chair Spin Spinning, Push Turn, Ballerina Stand, Clock Work, Trucker Girl
-Griffarten Level 1.0: Basic Grip/True Grip, Reverse Grip, Safety/Push Grip`;
+  const l20 = `\n\nLEVEL 2.0 (Beginner) – zusätzlich zu 1.0+1.1:
+Neue Figuren: Fireman Spin Up, Aerial Plié Spin, Sunwheel Spin Front+Back, Attitude Spin, Power Climb (2x), Hook Hold Ext. Leg, Chair Hold Ext. Leg Air, Diagonal Slide, Broken Seat, Stargazer Prep. Safety, Cross Knee Release Safety, Basic Invert Roll Down, Handstand Invert, Inverted Crucifix Release, Handstand Butterfly/Scorpion, Inverted V/Chopper/Helicopter
+Neue Griffart: Stronghold`;
 
-  const l11 = `\nLevel 1.1 neue Figuren (zusätzlich zu 1.0): Basic Spin Back, Chair Spin Back (Reverse Grip), Diamond Spin, Fireman Spin Static, Tuck Spin, Belly Slide, Broken Crucifix Boden+Air, Wrap Around, Lady Seat/Knee Hook Pose, Seat Arm Pit Hold, Basic Invert Open Leg, Lean Back Double Grip, Sunwheel Pose/Stag Pose, Ballerina Pose, Roundabout Pole, Stag Floor, Shoulder Roll, Side Slide, Side Slide Kick
-Neue Griffart L1.1: Armpit Hold, Twisted Grip, Reverse Split Grip`;
+  const l30 = `\n\nLEVEL 3.0 (Intermediate) – zusätzlich zu 1.0+1.1+2.0:
+Neue Figuren: Corkscrew Prep., Corkscrew, Tinkerbell Spin, Drama Queen Seat, Martini Seat Floor, Swan Seat, Stargazer (ohne Safety), Cross Knee Release+Handstand, Drama Queen Drop Prep., Invert Play Leg, Invert Ext. Leg, Superman Slide, Outside/Inside Leg Hang Prep., Straddle Pose Push Grip
+Neue Griffart: Cup Grip`;
 
-  const l20 = `\nLevel 2.0 neue Figuren (zusätzlich zu 1.0+1.1): Fireman Spin Up, Aerial Plié Spin, Sunwheel Spin Front+Back, Attitude Spin, Power Climb (2x), Hook Hold Ext. Leg, Chair Hold Ext. Leg Air, Diagonal Slide, Broken Seat, Stargazer Prep. Safety, Cross Knee Release Safety, Basic Invert Roll Down, Handstand Invert, Inverted Crucifix Release, Handstand Butterfly/Scorpion, Inverted V/Chopper/Helicopter
-Neue Griffart L2: Stronghold`;
-
-  const l30 = `\nLevel 3.0 neue Figuren (zusätzlich zu 1.0+1.1+2.0): Corkscrew Prep., Corkscrew, Tinkerbell Spin, Drama Queen Seat, Martini Seat Floor, Swan Seat, Stargazer (ohne Safety), Cross Knee Release+Handstand, Drama Queen Drop Prep., Invert Play Leg, Invert Ext. Leg, Superman Slide, Outside/Inside Leg Hang Prep., Straddle Pose Push Grip
-Neue Griffart L3: Cup Grip`;
-
-  let c = base + l10;
+  let c = l10;
   if (level === "1.1") c += l11;
   if (level === "2.0") c += l11 + l20;
   if (level === "3.0") c += l11 + l20 + l30;
-  return c;
+  return c + "\n\nLEVEL-REGEL: Verwende AUSSCHLIESSLICH Figuren aus den oben gelisteten Leveln. Niemals höhere Figuren einbauen.";
 }
 
-function buildSystemPrompt(level) {
-  return `Du bist Katarina Tolkmit von VerticalKay Education und planst Poledance-Unterrichtseinheiten.
+// ── STUNDENTYP-LOGIK ────────────────────────────────────────────────────────
+function buildLessonTypeLogic(lessonType) {
+  if (lessonType === "Choreographie") {
+    return `STUNDENTYP: CHOREOGRAPHIE-AUFBAU
+- Die Choreographie wird in 3-4 Teile aufgebaut, pro Einheit kommt 1 Teil dazu.
+- Ablauf bei jedem neuen Element:
+  1. Figur Schritt für Schritt OHNE Musik erklären und 2-3x üben
+  2. Mit der Choreographie verbinden (alte Teile + neuer Teil), 2x ohne Musik durchgehen
+  3. 2x mit Musik tanzen
+  4. Nächste Figur anhängen
+- Reihenfolge der Figuren kann frei gestaltet werden, vom Leichten zum Schweren.
+- Am Stundenende: ALLE bisher gelernten Teile 2-3x mit Musik durchtanzen.
+- Output-Fokus: choreographieTeil + figurenSequenz + musikHinweis`;
+  }
+  if (lessonType === "Technik") {
+    return `STUNDENTYP: TECHNIK-STUNDE
+- Reine Technik-Vertiefung, KEINE Choreographie.
+- Aufbau: Warm-Up → kurze Wiederholung kompletter Choreographie 1x mit Musik → dann Technikteil.
+- Im Technikteil: Einzelne Figuren technisch sauber durchgehen, jede Figur 4x pro Seite.
+- Fokus auf Sauberkeit der Ausführung, Automatisierung der Bewegungsabläufe.
+- Neue Kombinationen aus bekannten Figuren ausprobieren (z.B. "Basic Spin → Front Hook Stand → OST").
+- Output-Fokus: figurenListe (technisch durchgehen) + neueKombinationen (mit Hinweisen)`;
+  }
+  return `STUNDENTYP: PRAXIS / WORKSHOP
+- Wiederholung und Vertiefung unsicherer Figuren aus den letzten Einheiten.
+- ODER: Wenn alles sitzt → Workshop-Charakter mit neuen freien Kombinationen aus bekannten Elementen.
+- Optional: Eine kürzere zweite Choreographie zum Spielen.
+- Es geht um Festigung, nicht um neuen Stoff.
+- Output-Fokus: vertiefungsFiguren + freieKombinationen + workshopIdee`;
+}
+
+// ── WARM-UP-LOGIK (variabel je nach Einheit) ────────────────────────────────
+function buildWarmupGuidance(unit) {
+  const u = parseInt(unit, 10);
+  let sequenzen = 4;
+  if (u >= 2 && u <= 2) sequenzen = 5;
+  else if (u >= 3 && u <= 4) sequenzen = 7;
+  else if (u >= 5) sequenzen = 6;
+
+  return `WARM-UP-AUFBAU für Einheit ${u}: ca. 20-25 Min, in ${sequenzen} Sequenzen:
+- Sequenz 1: Mobilisation aller Gliedmaßen (oben nach unten: Schultern → Arme → Kopf → Handgelenke → Wirbelsäule → Hüfte → Beine)
+- Sequenz 2: Cardio + Kraft (HKL anheben, beginnerfreundlich, stehend)
+- Sequenz 3: Pre-Stretch an der Pole (max. 8 Sek halten, dynamisch)
+- Sequenz 4: Pole-Kraftübungen + Invert-Vorübung${u >= 3 ? "\n- Sequenz 5: Fan Kick Wiederholung (4x rechts, 4x links)" : ""}${sequenzen >= 6 ? "\n- Sequenz " + (sequenzen-1) + ": Wiederholung bekannter Figuren (Übergang zum Hauptteil)" : ""}${sequenzen === 7 ? "\n- Sequenz 7: Choreographie bis aktueller Stand 1x ohne, 2x mit Musik" : ""}`;
+}
+
+// ── SYSTEM-PROMPT ───────────────────────────────────────────────────────────
+function buildSystemPrompt({ level, lessonType, unit }) {
+  return `Du bist Katarina Tolkmit von VerticalKay Education und planst Poledance-Unterrichtseinheiten nach deinem eigenen, etablierten System.
+
+${METHODIK}
 
 ${buildCurriculum(level)}
 
-STUNDENAUFBAU: Warm-Up 20 Min → 6 Pflicht-Bausteine (Spin, Trick, Figur, Move, Tänzerisches Element, Boden) + Wiederholung + Kombination 50 Min → Cool Down 5 Min.
-PÄDAGOGIK: Indirekte Kommunikation ("Wir..."), nie Einzelne vorführen. Regression für Schwächere, Progression für Stärkere.
-ANATOMIE: Latissimus bei JEDEM Spin aktivieren. Presspoints NIE auf Gelenke. Beide Seiten trainieren.
+${buildLessonTypeLogic(lessonType)}
 
-WICHTIG: Jede Variation MUSS alle 6 Bausteine enthalten. Kein Baustein darf fehlen.
+${buildWarmupGuidance(unit)}
+
+GESAMTAUFBAU EINER EINHEIT:
+- Warm-Up (20-25 Min, in Sequenzen, siehe oben)
+- Hauptteil (50 Min, abhängig vom Stundentyp)
+- Cool Down (5 Min, Dehnung + Atmung)
 
 AUSGABE-FORMAT: Antworte NUR mit einem JSON-Array mit genau 3 Objekten. Kein Text davor oder danach. Kein Markdown. Nur reines JSON.
 
@@ -51,42 +124,48 @@ Jedes Objekt hat folgende Struktur:
 {
   "option": 1,
   "optionLabel": "Kurzer Titel (2-3 Wörter)",
-  "optionBeschreibung": "Ein Satz Beschreibung des Fokus",
+  "optionBeschreibung": "Ein Satz Fokus dieser Variante",
   "warmup": [
-    { "seq": "Mobilisierung", "inhalt": "..." },
-    { "seq": "Cardio / Kraft", "inhalt": "..." },
-    { "seq": "Pre-Stretch", "inhalt": "..." },
-    { "seq": "Pole-Vorbereitung", "inhalt": "..." }
+    { "seq": "Sequenz 1: Mobilisation", "inhalt": "konkrete Übungen..." },
+    { "seq": "Sequenz 2: ...", "inhalt": "..." }
   ],
-  "wiederholung": ["Figur1", "Figur2", "Figur3", "Figur4"],
-  "spin": { "name": "...", "griff": "...", "uhrzeit": "...", "hinweis": "..." },
-  "trick": { "name": "...", "griff": "...", "uhrzeit": "...", "hinweis": "..." },
-  "figur": { "name": "...", "griff": "...", "uhrzeit": "...", "hinweis": "..." },
-  "move": { "name": "...", "griff": "...", "uhrzeit": "...", "hinweis": "..." },
-  "tanz": { "name": "...", "griff": "...", "uhrzeit": "...", "hinweis": "..." },
-  "boden": { "name": "...", "griff": "–", "uhrzeit": "–", "hinweis": "..." },
-  "kombi": "Figur1 → Figur2 → Figur3 — Beschreibung",
-  "didaktik": "...",
-  "anatomie": "...",
-  "gesundheitsTipp": "..."
-}`;
+  "wiederholung": ["Figur1 (4x pro Seite)", "Combo: Figur2 + Figur3", "..."],
+  "hauptteil": {
+    "fokus": "z.B. Choreographie Teil 2 erlernen / Technik Basic Spin vertiefen / Praxis-Workshop",
+    "figuren": [
+      { "name": "Figurname", "griff": "Basic Grip", "uhrzeit": "9:00 Uhr", "hinweis": "Latissimus aktivieren, indirekte Ansage: 'Wir ziehen die Schulterblätter Richtung Hosentasche'" }
+    ],
+    "kombinationen": [
+      "Basic Spin → Front Hook Stand → OST → Hip Roll — erst Schritt für Schritt, dann 2x ohne Musik, 2x mit Musik"
+    ]
+  },
+  "regression": "Vereinfachung für schwächere Schüler (z.B. 'Fan Kick mit 45° statt 90° für schwachen Hüftbeuger')",
+  "progression": "Steigerung für stärkere Schüler (z.B. 'zusätzlich Pencil Turn vor dem Spin')",
+  "didaktik": "Konkrete pädagogische Ansage in indirekter Pluralform – z.B. 'Wir spüren beim Spin, wie der Latissimus uns trägt.'",
+  "anatomie": "Welche Muskelgruppen aktiviert werden + auf welche Gelenk-Belastung zu achten ist",
+  "verletzungsAnpassung": "Falls Verletzungen angegeben: konkrete Anpassung. Sonst leerer String.",
+  "gesundheitsTipp": "Ein Cool-Down/Gesundheits-Hinweis"
 }
 
-function buildUserPrompt({ level, pole, duration, freq, group, unit, types, injuries, injOther, goal, focus }) {
+Die 3 Varianten sollen sich DEUTLICH unterscheiden (z.B. Fokus Technik vs. Flow vs. Kraft-Aufbau).`;
+}
+
+// ── USER-PROMPT ─────────────────────────────────────────────────────────────
+function buildUserPrompt({ level, pole, duration, freq, group, unit, lessonType, choreoTeil, types, injuries, injOther, goal, focus }) {
+  const choreoInfo = lessonType === "Choreographie" ? `\n- Choreographie-Teil: ${choreoTeil} von 4` : "";
   return `Erstelle 3 verschiedene Unterrichtsvarianten für:
 - Level: ${level}
+- Stundentyp: ${lessonType}${choreoInfo}
 - Pole-Modus: ${pole}
 - Einheitsdauer: ${duration}
 - Frequenz: ${freq}
 - Teilnehmeranzahl: ${group}
 - Einheit Nr.: ${unit} von 10
-- Unterrichtsinhalt: ${types.join(", ")}
+- Schwerpunkt: ${types.join(", ") || "ausgewogen"}
 - Verletzungen/Einschränkungen: ${[...injuries, injOther].filter(Boolean).join(", ") || "keine"}
 - Trainingsziel: ${goal || "nicht angegeben"}
 - Besondere Wünsche: ${focus || "keine"}
 
-Die 3 Varianten sollen sich deutlich voneinander unterscheiden (z.B. Fokus Technik vs. Flow vs. Aufbau).
-Verwende NUR Figuren aus Level ${level} (und darunter).
 Antworte NUR mit dem JSON-Array.`;
 }
 
@@ -299,19 +378,12 @@ const css = `
 }
 `;
 
-const BAUSTEINE = [
-  { key: "spin",  icon: "🌀", label: "Spin" },
-  { key: "trick", icon: "🎯", label: "Trick" },
-  { key: "figur", icon: "⭐", label: "Figur" },
-  { key: "move",  icon: "➡️", label: "Move" },
-  { key: "tanz",  icon: "💃", label: "Tänzerisches Element" },
-  { key: "boden", icon: "🔻", label: "Boden" },
-];
-
 export default function VerticalKayPlaner() {
   const [level, setLevel] = useState("1.0");
+  const [lessonType, setLessonType] = useState("Choreographie");
+  const [choreoTeil, setChoreoTeil] = useState("1");
   const [pole, setPole] = useState("Static Pole");
-  const [duration, setDuration] = useState("90 Minuten");
+  const [duration, setDuration] = useState("75 Minuten");
   const [freq, setFreq] = useState("1x pro Woche");
   const [group, setGroup] = useState("8");
   const [types, setTypes] = useState(["Technik"]);
@@ -340,8 +412,8 @@ export default function VerticalKayPlaner() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          systemPrompt: buildSystemPrompt(level),
-          userPrompt: buildUserPrompt({ level, pole, duration, freq, group, unit: selectedUnit, types, injuries, injOther, goal, focus })
+          systemPrompt: buildSystemPrompt({ level, lessonType, unit: selectedUnit }),
+          userPrompt: buildUserPrompt({ level, pole, duration, freq, group, unit: selectedUnit, lessonType, choreoTeil, types, injuries, injOther, goal, focus })
         })
       });
 
@@ -351,7 +423,7 @@ export default function VerticalKayPlaner() {
       const raw = data.result.trim();
       const parsed = JSON.parse(raw);
       setOptions(parsed);
-      setPlanMeta({ level, pole, duration, freq, group, unit: selectedUnit });
+      setPlanMeta({ level, pole, duration, freq, group, unit: selectedUnit, lessonType, choreoTeil });
     } catch (err) {
       setErrorMsg("Fehler: " + err.message + " — Bitte nochmal versuchen.");
     } finally {
@@ -385,6 +457,26 @@ export default function VerticalKayPlaner() {
               </button>
             ))}
           </div>
+
+          <div className="vk-section-label" style={{marginTop: "0.6rem"}}>Stundentyp</div>
+          <div className="level-grid" style={{gridTemplateColumns: "repeat(3,1fr)"}}>
+            {[["Choreographie","Aufbau"],["Technik","Vertiefung"],["Praxis","Workshop"]].map(([t, sub]) => (
+              <button key={t} className={`level-btn${lessonType === t ? " active" : ""}`} onClick={() => setLessonType(t)}>
+                {t}<span className="level-sub">{sub}</span>
+              </button>
+            ))}
+          </div>
+
+          {lessonType === "Choreographie" && (
+            <div style={{marginBottom: "1.6rem"}}>
+              <label className="fg-label">Choreographie-Teil</label>
+              <div className="toggle-row">
+                {["1","2","3","4"].map(t => (
+                  <button key={t} className={`toggle-btn${choreoTeil === t ? " active" : ""}`} onClick={() => setChoreoTeil(t)}>Teil {t}</button>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="form-grid">
             <div>
@@ -467,7 +559,7 @@ export default function VerticalKayPlaner() {
           <div className="results-wrap">
             <div className="results-header">
               <h2 className="results-h2">Einheit {planMeta?.unit} · 3 Varianten</h2>
-              {planMeta && <p className="results-meta">Level {planMeta.level} · {planMeta.pole} · {planMeta.duration} · {planMeta.freq} · {planMeta.group} TN</p>}
+              {planMeta && <p className="results-meta">Level {planMeta.level} · {planMeta.lessonType}{planMeta.lessonType === "Choreographie" ? ` (Teil ${planMeta.choreoTeil})` : ""} · {planMeta.pole} · {planMeta.duration} · {planMeta.group} TN</p>}
             </div>
 
             <div className="option-tabs">
@@ -516,34 +608,53 @@ export default function VerticalKayPlaner() {
                     </div>
                   )}
 
-                  <div className="section-block">
-                    <div className="section-label">✦ Die 6 Bausteine dieser Einheit</div>
-                    <div className="bausteine-grid">
-                      {BAUSTEINE.map(({ key, icon, label }) => {
-                        const b = activeOpt[key];
-                        if (!b) return null;
-                        return (
-                          <div key={key} className="baustein-card">
-                            <div className="baustein-icon-label">{icon} {label}</div>
-                            <div className="baustein-name">{b.name}</div>
-                            {(b.griff || b.uhrzeit) && (
-                              <div className="baustein-meta">
-                                {b.griff && b.griff !== "–" && <span>{b.griff}</span>}
-                                {b.griff && b.griff !== "–" && b.uhrzeit && b.uhrzeit !== "–" && " · "}
-                                {b.uhrzeit && b.uhrzeit !== "–" && <span>{b.uhrzeit}</span>}
-                              </div>
-                            )}
-                            <div className="baustein-hinweis">{b.hinweis}</div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {activeOpt.kombi && (
+                  {activeOpt.hauptteil && (
                     <div className="section-block">
-                      <div className="section-label">🔗 Kombination</div>
-                      <div className="section-content">{activeOpt.kombi}</div>
+                      <div className="section-label">✦ Hauptteil — {activeOpt.hauptteil.fokus}</div>
+                      {activeOpt.hauptteil.figuren?.length > 0 && (
+                        <div className="bausteine-grid">
+                          {activeOpt.hauptteil.figuren.map((b, j) => (
+                            <div key={j} className="baustein-card">
+                              <div className="baustein-name">{b.name}</div>
+                              {(b.griff || b.uhrzeit) && (
+                                <div className="baustein-meta">
+                                  {b.griff && b.griff !== "–" && <span>{b.griff}</span>}
+                                  {b.griff && b.griff !== "–" && b.uhrzeit && b.uhrzeit !== "–" && " · "}
+                                  {b.uhrzeit && b.uhrzeit !== "–" && <span>{b.uhrzeit}</span>}
+                                </div>
+                              )}
+                              <div className="baustein-hinweis">{b.hinweis}</div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      {activeOpt.hauptteil.kombinationen?.length > 0 && (
+                        <div style={{marginTop: "1rem"}}>
+                          <div className="section-label" style={{fontSize: "0.62rem"}}>🔗 Kombinationen</div>
+                          {activeOpt.hauptteil.kombinationen.map((k, j) => (
+                            <div key={j} className="section-content" style={{marginBottom: "6px"}}>• {k}</div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {(activeOpt.regression || activeOpt.progression) && (
+                    <div className="section-block">
+                      <div className="info-grid">
+                        {activeOpt.regression && (
+                          <div className="info-item">
+                            <div className="info-item-label">⬇ Regression (leichter)</div>
+                            <div className="info-item-value">{activeOpt.regression}</div>
+                          </div>
+                        )}
+                        {activeOpt.progression && (
+                          <div className="info-item">
+                            <div className="info-item-label">⬆ Progression (schwerer)</div>
+                            <div className="info-item-value">{activeOpt.progression}</div>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   )}
 
@@ -563,6 +674,15 @@ export default function VerticalKayPlaner() {
                       )}
                     </div>
                   </div>
+
+                  {activeOpt.verletzungsAnpassung && (
+                    <div className="section-block">
+                      <div className="info-item" style={{background: "rgba(180,80,0,0.15)", borderColor: "rgba(255,150,80,0.3)"}}>
+                        <div className="info-item-label" style={{color: "#ffb088"}}>⚠ Verletzungs-Anpassung</div>
+                        <div className="info-item-value">{activeOpt.verletzungsAnpassung}</div>
+                      </div>
+                    </div>
+                  )}
 
                   {activeOpt.gesundheitsTipp && (
                     <div className="section-block">
